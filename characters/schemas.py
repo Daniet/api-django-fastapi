@@ -1,23 +1,18 @@
 from typing import Optional
 from pydantic import BaseModel
 
-class CharacterBase(BaseModel):
+class CharacterModel(BaseModel):
+    id: Optional[int]
     name: str
     alter_ego: str
     power: str
 
-class CharacterCreate(CharacterBase):
-    pass
-
-class CharacterModel(CharacterBase):
-    id: Optional[int]
-
     class Config:
         orm_mode = True
         schema_extra = {
-            "examples": {
+            "example": {
                 "name": "SpiderMan",
-                "alter_ego": "Peter Parker"
+                "alter_ego": "Peter Parker",
                 "power": "Throw spider web"
             }
         } 
