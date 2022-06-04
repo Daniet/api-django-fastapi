@@ -6,27 +6,27 @@ This a API REST. The idea is to demonstrate a simple way to integrate FastAPI wi
 
 First of all, clone this repo.
 
-``
+```
 git clone https://github.com/DD21S/api-django-fastapi.git
-``
+```
 
 Then, in the project directory, you install the requirements.
 
-``
+```
 pip install -r requirements.txt
-``
+```
 
 Now, make the migrations.
 
-``
-python3 manage.py migrate
-`` 
+```
+python manage.py migrate
+``` 
 
 And finally, run the project.
 
-``
+```
 uvicorn django_fastapi.asgi:app --reload
-``
+```
 
 Ready, now your API is running :&#41;
 
@@ -34,11 +34,12 @@ Ready, now your API is running :&#41;
 
 It's recommended to use a virtual enviroment to run Python web applications.
 
-Create one with this command:
+Create and activate one with these commands:
 
-``
+```
 python3 -m venv venv
-``
+source venv/bin/activate
+```
 
 ## Routes
 
