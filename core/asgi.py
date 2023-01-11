@@ -1,5 +1,5 @@
 """
-ASGI config for django_fastapi project.
+ASGI config for core project.
 
 It exposes the ASGI callable as a module-level variable named ``application``.
 
@@ -12,8 +12,9 @@ import os
 from django.apps import apps
 from django.conf import settings
 from django.core.wsgi import get_wsgi_application
+from fastapi.staticfiles import StaticFiles
 
-os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'django_fastapi.settings')
+os.environ.setdefault("DJANGO_SETTINGS_MODULE", "core.settings")
 apps.populate(settings.INSTALLED_APPS)
 
 from fastapi import FastAPI
@@ -21,6 +22,7 @@ from fastapi.middleware.wsgi import WSGIMiddleware
 from starlette.middleware.cors import CORSMiddleware
 
 from characters.endpoints import routes_characters
+
 
 def get_application() -> FastAPI:
     app = FastAPI(title="Characters", debug=settings.DEBUG)
@@ -32,8 +34,12 @@ def get_application() -> FastAPI:
         allow_headers=["*"],
     )
     app.include_router(routes_characters, prefix="/characters")
+    app.mount(
+        "/static/admin", StaticFiles(directory="staticfiles/admin"), name="static"
+    )
     app.mount("/", WSGIMiddleware(get_wsgi_application()))
 
     return app
+
 
 app = get_application()
