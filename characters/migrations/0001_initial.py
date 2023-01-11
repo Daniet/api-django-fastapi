@@ -7,21 +7,28 @@ class Migration(migrations.Migration):
 
     initial = True
 
-    dependencies = [
-    ]
+    dependencies = []
 
     operations = [
         migrations.CreateModel(
-            name='Character',
+            name="Character",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('name', models.CharField(max_length=100)),
-                ('alter_ego', models.CharField(max_length=100)),
-                ('power', models.CharField(max_length=100)),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("name", models.CharField(max_length=100)),
+                ("alter_ego", models.CharField(max_length=100)),
+                ("power", models.CharField(max_length=100)),
             ],
             options={
-                'verbose_name': 'Character',
-                'verbose_name_plural': 'Characters',
+                "verbose_name": "Character",
+                "verbose_name_plural": "Characters",
             },
         ),
     ]

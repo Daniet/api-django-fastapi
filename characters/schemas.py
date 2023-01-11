@@ -1,5 +1,7 @@
 from typing import Optional
+
 from pydantic import BaseModel
+
 
 class CharacterModel(BaseModel):
     id: Optional[int]
@@ -13,7 +15,6 @@ class CharacterModel(BaseModel):
             "example": {
                 "name": "SpiderMan",
                 "alter_ego": "Peter Parker",
-                "power": "Throw spider web"
+                "power": "Throw spider web",
             }
-        } 
-
+        }
